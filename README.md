@@ -6,6 +6,7 @@ AI & Computer Vision Engineer
 ## Skills
 - Python
 - DeepStream
+- GenAi
 - YOLO
 - Docker
 - RTSP Streaming
