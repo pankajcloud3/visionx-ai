@@ -1,0 +1,66 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+
+# Virtual Environment
+env/
+venv/
+.venv/
+.env
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Models / Engine files
+*.engine
+*.trt
+*.onnx
+*.pt
+
+# Output folders
+outputs/
+results/
+bench_results/
+audit/
+snapshots/
+clips/
+
+# Temp files
+tmp/
+temp/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build
+dist/
+build/
+
+# Docker
+*.tar
+
+# Media
+*.mp4
+*.avi
+*.mkv
+
+# Environment files
+.env
+EOF.env
+.env
