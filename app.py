@@ -1,45 +1,57 @@
-# from dotenv import load_dotenv
-# import streamlit as st
-# import os
-# from google import genai
+from dotenv import load_dotenv
+import streamlit as st
+import os
+from groq import Groq
 
-# # Load environment variables
-# load_dotenv()
+# Load environment variables
+load_dotenv()
 
-# api_key = os.getenv("GEMINI_API_KEY")
+# Get API key
+api_key = os.getenv("GROQ_API_KEY")
 
-# # Create Gemini client
-# client = genai.Client(api_key=api_key)
+# Create Groq client
+client = Groq(api_key=api_key)
 
-# # Function to get response
-# def get_response(question):
+# Function to get response
+def get_response(question):
 
-#     response = client.models.generate_content(
-#         model="gemini-2.0-flash-lite",
-#         contents=question
-#     )
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": question
+            }
+        ],
+        model="llama-3.1-8b-instant"
+    )
 
-#     return response.text
+    return chat_completion.choices[0].message.content
 
-# # Initialize Streamlit app
-# st.set_page_config(page_title="Q&A Demo")
 
-# st.header("Gemini Application")
+# Streamlit UI
+st.set_page_config(page_title="Q&A Demo")
 
-# input_text = st.text_input("Input:", key="input")
+st.header("Groq AI Application")
 
-# submit = st.button("submit")
+input_text = st.text_input("Input:", key="input")
 
-# if submit and input_text:
+submit = st.button("submit")
 
-#     try:
+if submit:
 
-#         response = get_response(input_text)
+    if input_text.strip() == "":
+        st.warning("Please enter a question")
 
-#         st.subheader("The Response is")
+    else:
 
-#         st.write(response)
+        try:
 
-#     except Exception as e:
+            response = get_response(input_text)
 
-#         st.error(f"Error: {e}")
+            st.subheader("The Response is")
+
+            st.write(response)
+
+        except Exception as e:
+
+            st.error(f"Error: {e}")
