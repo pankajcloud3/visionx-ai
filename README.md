@@ -1,4 +1,4 @@
-# visionx-ai
+# vision-ai
 # Hi, I'm Pankaj 👋
 
 AI & Computer Vision Engineer
