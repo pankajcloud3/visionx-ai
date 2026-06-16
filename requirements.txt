@@ -13,3 +13,13 @@ bandit
 markdown
 
 requests
+groq
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-groq
+langchain-text-splitters
+PyPDF2
+faiss-cpu
+sentence-transformers
+torch
+torchvision
